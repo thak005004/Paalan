@@ -51,6 +51,22 @@ export default {
         card: {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))'
+        },
+        paalan: {
+          cream: '#fbf7f0',
+          'cream-deep': '#f3ede0',
+          'cream-border': '#efe7d8',
+          'cream-border-soft': '#f0e9db',
+          green: '#0e7a5f',
+          'green-deep': '#0b5f4a',
+          'green-tint': '#e8efe9',
+          'green-tint-2': '#eef4f0',
+          amber: '#b8860b',
+          'amber-tint': '#fbf1d8',
+          rose: '#c0392b',
+          ink: '#1b1a17',
+          muted: '#9a8c73',
+          'muted-2': '#7c7568'
         }
       },
       borderRadius: {

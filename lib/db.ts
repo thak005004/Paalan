@@ -5,7 +5,28 @@ import { count, eq, ilike } from 'drizzle-orm';
 import postgres from 'postgres';
 import { products, type SelectProduct } from './schema';
 
-export { users, type SelectUser, products, type SelectProduct, statusEnum, insertProductSchema } from './schema';
+export {
+  users,
+  type SelectUser,
+  products,
+  type SelectProduct,
+  statusEnum,
+  insertProductSchema,
+  households,
+  type SelectHousehold,
+  householdMembers,
+  type SelectHouseholdMember,
+  bills,
+  type SelectBill,
+  attachments,
+  type SelectAttachment,
+  confirmations,
+  type SelectConfirmation,
+  paymentIntents,
+  type SelectPaymentIntent,
+  billStatusEnum,
+  memberRoleEnum
+} from './schema';
 
 export const db = drizzle(postgres(process.env.DATABASE_URL!));
 
