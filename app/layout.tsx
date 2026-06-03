@@ -1,9 +1,15 @@
 import './globals.css';
 
 export const metadata = {
-  title: 'Next.js + Postgres Starter',
+  title: 'Paalan — peace of mind about your parents',
   description:
-    'A full-stack Next.js starter with Postgres, Auth.js, and Drizzle ORM. Built for Lightsprint.'
+    "Paalan helps NRIs stop guessing whether their aging parent's bills are handled. Proof-backed, second-party-confirmed care records."
+};
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#0e7a5f'
 };
 
 export default function RootLayout({
