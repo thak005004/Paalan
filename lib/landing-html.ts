@@ -188,7 +188,6 @@ export const landingHtml = `
       <button type="submit">Get early access</button>
     </form>
     <p class="formnote rv d3">Free for our first 10 families. No spam, just one note when we open up.</p>
-    <div class="demowrap rv d3"><a class="demobtn" href="/app" target="_blank" rel="noopener">Explore the live demo →</a></div>
     <div class="ok" id="ok1"><h3>You're on the list.</h3><p>We'll reach out personally when early access opens. Thank you for trusting us with something this close to home.</p></div>
   </header>
 
