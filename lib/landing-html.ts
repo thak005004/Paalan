@@ -26,6 +26,12 @@ export const landingHtml = `
     #sah .brand .seal:after{content:"";position:absolute;inset:6px;border-radius:50%;background:var(--paper)}
     #sah .navcta{background:var(--terra);color:#fff;border:none;border-radius:11px;padding:11px 18px;font-family:inherit;font-weight:700;font-size:14.5px;cursor:pointer;white-space:nowrap;transition:.18s}
     #sah .navcta:hover{background:var(--terra2);transform:translateY(-1px)}
+    #sah .navlinks{display:flex;align-items:center;gap:16px}
+    #sah .navdemo{color:var(--ink2);font-weight:600;font-size:14.5px;text-decoration:none;transition:.16s;white-space:nowrap}
+    #sah .navdemo:hover{color:var(--terra2)}
+    #sah .demobtn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border:1.5px solid var(--terra);color:var(--terra2);background:transparent;border-radius:13px;font-family:inherit;font-weight:700;font-size:15px;text-decoration:none;transition:.18s}
+    #sah .demobtn:hover{background:var(--terra);color:#fff;transform:translateY(-2px)}
+    #sah .demowrap{margin-top:18px}
     #sah .navtag{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:var(--ink2)}
 
     #sah .hero{position:relative;z-index:2;padding:46px 0 16px}
@@ -166,7 +172,10 @@ export const landingHtml = `
 
   <nav class="nav"><div class="navin">
     <div class="brand"><span class="seal"></span> Paalan</div>
-    <button class="navcta" id="navcta" type="button">Get early access</button>
+    <div class="navlinks">
+      <a class="navdemo" href="/app" target="_blank" rel="noopener">Explore demo</a>
+      <button class="navcta" id="navcta" type="button">Get early access</button>
+    </div>
   </div></nav>
 
   <header class="wrap hero">
@@ -179,6 +188,7 @@ export const landingHtml = `
       <button type="submit">Get early access</button>
     </form>
     <p class="formnote rv d3">Free for our first 10 families. No spam, just one note when we open up.</p>
+    <div class="demowrap rv d3"><a class="demobtn" href="/app" target="_blank" rel="noopener">Explore the live demo →</a></div>
     <div class="ok" id="ok1"><h3>You're on the list.</h3><p>We'll reach out personally when early access opens. Thank you for trusting us with something this close to home.</p></div>
   </header>
 
@@ -226,6 +236,7 @@ export const landingHtml = `
     </div>
   </div>
   <p class="cap rv">One clear view for you. Something gentle for them.</p>
+  <div class="demowrap rv" style="text-align:center"><a class="demobtn" href="/app" target="_blank" rel="noopener">Explore the live demo →</a></div>
 
   <!-- VALUE -->
   <section class="sec"><div class="wrap">
