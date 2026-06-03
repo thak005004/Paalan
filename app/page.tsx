@@ -70,7 +70,7 @@ export default async function HomePage() {
   }
 
   return (
-    <div className="mx-auto flex min-h-screen w-full max-w-md flex-col bg-cream sm:max-w-2xl lg:max-w-5xl">
+    <div className="mx-auto flex min-h-screen w-full max-w-md flex-col bg-cream sm:max-w-2xl lg:max-w-7xl">
       {/* Demo banner */}
       <div className="flex items-center justify-between gap-3 bg-pinegreen-deep px-5 py-2.5 text-sm text-white">
         <span>You’re viewing a sample home in Pune</span>
@@ -110,7 +110,7 @@ export default async function HomePage() {
         <h1 className="text-xl font-semibold text-ink">Good evening, {childName}</h1>
 
         {/* Hero card */}
-        <section className="rounded-2xl bg-pinegreen px-6 py-7 text-white shadow-sm lg:max-w-2xl">
+        <section className="rounded-2xl bg-pinegreen px-6 py-7 text-white shadow-sm">
           <div className="flex items-center gap-2 text-2xl font-semibold">
             <span>{parentName}’s all set</span>
             <Check className="h-6 w-6" strokeWidth={3} />
