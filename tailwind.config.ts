@@ -19,6 +19,25 @@ export default {
     },
     extend: {
       colors: {
+        // --- Paalan warm palette (D7/D10) ---
+        pinegreen: {
+          DEFAULT: '#0e7a5f',
+          deep: '#0b5f4a'
+        },
+        cream: {
+          DEFAULT: '#fbf7f0',
+          card: '#ffffff',
+          border: '#efe7d8'
+        },
+        amber: '#b8860b',
+        rose: '#c0392b',
+        ink: '#1b1a17',
+        // shadcn keeps `muted-foreground`; `muted` DEFAULT becomes the Paalan tone.
+        muted: {
+          DEFAULT: '#9a8c73',
+          foreground: 'hsl(var(--muted-foreground))'
+        },
+        // --- shadcn structural tokens ---
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
@@ -35,10 +54,6 @@ export default {
         destructive: {
           DEFAULT: 'hsl(var(--destructive))',
           foreground: 'hsl(var(--destructive-foreground))'
-        },
-        muted: {
-          DEFAULT: 'hsl(var(--muted))',
-          foreground: 'hsl(var(--muted-foreground))'
         },
         accent: {
           DEFAULT: 'hsl(var(--accent))',

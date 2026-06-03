@@ -1,49 +1,15 @@
 # Paalan
 
-**Care for aging parents who live across the world, and actually know each thing got done.**
+**Verified bill coordination for NRIs caring for parents back home.**
 
-*Paalan*: to nurture, to look after.
+Paalan lets an adult child living abroad stop guessing whether their aging
+parent's bills are handled. Each bill carries an attached receipt and a one-tap
+confirmation from a second party (parent or helper) — proof, not "trust us."
+Paalan records and verifies; it never touches your money or reads medical reports.
 
-> Launched solo on X and Reddit. Strangers were signing up within 24 hours.
+This repo is the v1 mobile-first PWA (the child's surface).
 
-## The problem
-
-A lot of people support aging parents who live in another country. Bills, doctor's appointments, and payments all happen thousands of miles away, and there is no clean way to track them or confirm they actually got done. Group chats and spreadsheets fall apart fast, and "did you pay the electricity bill?" turns into a guessing game.
-
-## What Paalan does
-
-Paalan turns scattered care tasks into a verifiable record. Every bill, appointment, and payment is logged as an entry backed by proof (a receipt or a photo), so you can confirm something happened even from the other side of the world.
-
-Two surfaces, one source of truth:
-
-- **Management dashboard** for the family member coordinating from abroad: full history, status, and proof for every task.
-- **Parent view**, a stripped-down, low-friction screen so the parent (or a local helper) can add or confirm things without fuss.
-
-## Features
-
-- Track bills, appointments, and payments in one place
-- Proof attached to every entry (receipt or photo) for remote verification
-- Role-based access, so caregiver, parent, and local helper each get the right view
-- Provider- and country-agnostic by design, with no assumptions about banks, hospitals, or currency
-- Append-only, timestamped event log, so nothing gets lost or quietly overwritten
-
-## The AI layer
-
-The real friction in a tool like this is data entry, so Paalan removes it.
-
-- **WhatsApp to structured entry:** a casual message like *"paid 2000 for mom's eye checkup"* becomes a typed entry (payee, amount, category, status) on its own.
-- **Built to extend** (on the roadmap): pull those same fields straight from a photo of a bill, and summarize a medical report written in a regional language into plain English for the family.
-
-## How it's built
-
-- The data model is an **event log of typed, timestamped, role-based records**. It is append-only, so history stays auditable and both the parent and caregiver views derive from the same underlying truth.
-- Kept **provider- and country-agnostic** so it works no matter which bank, hospital, or messaging app a family uses.
-
-## Tech stack
-
-React · TypeScript · LLM-based parsing for the message-to-entry flow
-
-## Run it locally
+## Quick start (no setup)
 
 ```bash
 git clone https://github.com/thak005004/Paalan.git
@@ -52,12 +18,56 @@ npm install
 npm run dev
 ```
 
-> Adjust the commands and environment variables to match your setup, and add a `.env.example` for any API keys.
+Open **http://localhost:3000** — you'll see the sample **"Amma · Pune"**
+household with confirmed, proof-backed bills and the closed-trust-loops metric.
 
-## Status
+No database or config required: with no `.env`, the app runs in **demo mode**
+using built-in sample data. (Package manager is **bun** by preference, but
+`npm` works fine.)
 
-Live prototype with real signups, actively iterating.
+## Run with a real database
 
----
+To persist data in Postgres instead of the demo fixture:
 
-Built by **Aditi Thakur** · [github.com/thak005004](https://github.com/thak005004) · [LinkedIn](https://www.linkedin.com/in/thakuraditi005)
+1. Create a Postgres database (e.g. on [Neon](https://neon.tech)).
+2. Copy the env template and add your connection string:
+   ```bash
+   cp .env.example .env   # then set DATABASE_URL
+   ```
+3. Migrate, seed, and run:
+   ```bash
+   bun install
+   bun run db:setup       # apply migrations + seed the demo household
+   bun run dev
+   ```
+
+When `DATABASE_URL` is set, the home page reads from the database; otherwise it
+falls back to the demo fixture (`lib/demo.ts`). The two are kept identical.
+
+## Scripts
+
+| Script | Description |
+|--------|-------------|
+| `bun run dev` | Start the dev server (Turbopack) |
+| `bun run build` | Production build |
+| `bun run db:generate` | Generate a Drizzle migration from schema changes |
+| `bun run db:migrate` | Apply pending migrations |
+| `bun run db:seed` | Seed the demo household (idempotent) |
+| `bun run db:setup` | Migrate + seed in one step |
+
+## Stack
+
+- [Next.js 15](https://nextjs.org) (App Router, Turbopack) · React 19 · TypeScript
+- [Tailwind CSS](https://tailwindcss.com) · [shadcn/ui](https://ui.shadcn.com/)
+- [Auth.js v5](https://authjs.dev) — magic-link (auth wiring is in progress)
+- [Drizzle ORM](https://orm.drizzle.team) + Postgres ([Neon](https://neon.tech))
+
+## Data model
+
+Schema lives in `lib/schema.ts` (migrations in `drizzle/`). Core tables:
+`households` (ownership/billing unit), `householdMembers`, `bills` (with
+recurrence + lifecycle status), `attachments` (proof), `confirmations` (the
+trust trail), `paymentIntents`, `disputes`, plus the Auth.js tables.
+
+The closed-trust-loop metric — confirmed bills with ≥1 attachment, per household
+per month — is the north-star (`lib/bills/lifecycle.ts`).
