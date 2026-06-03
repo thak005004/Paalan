@@ -81,6 +81,7 @@ export const landingHtml = `
     #sah .tile{width:34px;height:34px;border-radius:10px;background:#f1e8d8;color:#9a8a72;display:flex;align-items:center;justify-content:center;flex-shrink:0}
     #sah .row .t{font-size:12px;font-weight:700;line-height:1.25}
     #sah .row .s{font-size:10.5px;color:#9b8d7e}
+    #sah .usd{font-size:.82em;font-weight:400;color:#b6a895}
     #sah .proof{width:34px;height:34px;border-radius:10px;background:var(--pine-soft);color:var(--pine);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-left:auto}
     #sah .chk{color:var(--pine);flex-shrink:0;margin-left:auto}
     #sah .bnav{display:flex;border-top:1px solid rgba(0,0,0,.06);background:#fffdf8;padding:7px 4px 9px}
@@ -190,11 +191,11 @@ export const landingHtml = `
           <div class="top"><div class="ava">M</div><div><div class="nm">Mummy</div><div class="loc">New Delhi · 12h ahead</div></div><span class="pill safe"><svg width="12" height="12"><use href="#i-shield"/></svg> All safe</span></div>
           <div class="body">
             <div class="lbl">Needs you</div>
-            <div class="attn"><svg width="17" height="17" style="color:#c2922f;flex-shrink:0"><use href="#i-shield"/></svg><div><div class="t">Insurance lapses in 4 days</div><div class="s">$420 · Star Health</div></div></div>
+            <div class="attn"><svg width="17" height="17" style="color:#c2922f;flex-shrink:0"><use href="#i-shield"/></svg><div><div class="t">Insurance lapses in 4 days</div><div class="s">₹18,400 <span class="usd">(~$220)</span> · Star Health</div></div></div>
             <div class="lbl">Recently handled · with proof</div>
-            <div class="row"><div class="tile"><svg width="16" height="16"><use href="#i-receipt"/></svg></div><div><div class="t">Electricity bill paid</div><div class="s">$45 · 2h ago</div></div><div class="proof"><svg width="15" height="15"><use href="#i-receipt"/></svg></div></div>
+            <div class="row"><div class="tile"><svg width="16" height="16"><use href="#i-receipt"/></svg></div><div><div class="t">Electricity bill paid</div><div class="s">₹1,240 <span class="usd">(~$15)</span> · 2h ago</div></div><div class="proof"><svg width="15" height="15"><use href="#i-receipt"/></svg></div></div>
             <div class="row"><div class="tile"><svg width="16" height="16"><use href="#i-steth"/></svg></div><div><div class="t">Cardiologist visit</div><div class="s">BP stable · report</div></div><div class="proof"><svg width="15" height="15"><use href="#i-file"/></svg></div></div>
-            <div class="row"><div class="tile"><svg width="16" height="16"><use href="#i-pill"/></svg></div><div><div class="t">Monthly medicines</div><div class="s">$60 · delivered</div></div><svg class="chk" width="17" height="17"><use href="#i-checkc"/></svg></div>
+            <div class="row"><div class="tile"><svg width="16" height="16"><use href="#i-pill"/></svg></div><div><div class="t">Monthly medicines</div><div class="s">₹3,260 <span class="usd">(~$40)</span> · delivered</div></div><svg class="chk" width="17" height="17"><use href="#i-checkc"/></svg></div>
           </div>
           <div class="bnav">
             <div class="bn on"><svg width="18" height="18"><use href="#i-home"/></svg><span>Home</span></div>
@@ -242,9 +243,9 @@ export const landingHtml = `
     <p class="kick rv">The simple part</p>
     <h2 class="rv">They text. It just works.</h2>
     <div class="wa rv">
-      <span class="bubble">Paid Ramesh $30 today 🙏</span>
+      <span class="bubble">Paid Ramesh ₹2,500 <span class="usd">(~$30)</span> today 🙏</span>
       <div class="arrow">becomes a verified entry ↓</div>
-      <div class="entry"><div class="tile" style="background:#fbedd2;color:#9a6a1f"><svg width="16" height="16"><use href="#i-users"/></svg></div><div><div class="t" style="font-size:12px;font-weight:700">House helper paid · $30</div><div class="s" style="font-size:10.5px;color:#9b8d7e">via WhatsApp · verified</div></div><svg class="chk" width="16" height="16"><use href="#i-checkc"/></svg></div>
+      <div class="entry"><div class="tile" style="background:#fbedd2;color:#9a6a1f"><svg width="16" height="16"><use href="#i-users"/></svg></div><div><div class="t" style="font-size:12px;font-weight:700">House helper paid · ₹2,500 <span class="usd">(~$30)</span></div><div class="s" style="font-size:10.5px;color:#9b8d7e">via WhatsApp · verified</div></div><svg class="chk" width="16" height="16"><use href="#i-checkc"/></svg></div>
     </div>
   </div></section>
 
